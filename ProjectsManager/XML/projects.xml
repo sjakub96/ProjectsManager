@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Projects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Project Id="1">
+    <Name>Dragon</Name>
+    <TypeId>1</TypeId>
+  </Project>
+  <Project Id="2">
+    <Name>Gryffin</Name>
+    <TypeId>1</TypeId>
+  </Project>
+  <Project Id="1">
+    <Name>37WEa - LU</Name>
+    <TypeId>2</TypeId>
+  </Project>
+  <Project Id="2">
+    <Name>31WEb - MLP</Name>
+    <TypeId>2</TypeId>
+  </Project>
+  <Project Id="1">
+    <Name>Stadler Tango</Name>
+    <TypeId>3</TypeId>
+  </Project>
+  <Project Id="2">
+    <Name>Bombardier Flexity Classic</Name>
+    <TypeId>3</TypeId>
+  </Project>
+  <Project Id="1">
+    <Name>Metro Sofia</Name>
+    <TypeId>4</TypeId>
+  </Project>
+  <Project Id="2">
+    <Name>Metro Warsaw</Name>
+    <TypeId>4</TypeId>
+  </Project>
+  <Project Id="3">
+    <Name>Metro Kamionka</Name>
+    <TypeId>4</TypeId>
+  </Project>
+  <Project Id="4">
+	<Name>Metro NS</Name>
+	<TypeId>4</TypeId>
+  </Project>
+</Projects>

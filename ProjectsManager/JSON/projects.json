@@ -1,0 +1,57 @@
+[
+  {
+    "Name": "Dragon",
+    "TypeId": 1,
+    "Id": 1
+  },
+  {
+    "Name": "Gryffin",
+    "TypeId": 1,
+    "Id": 2
+  },
+  {
+    "Name": "37WEa - LU",
+    "TypeId": 2,
+    "Id": 1
+  },
+  {
+    "Name": "31WEb - MLP",
+    "TypeId": 2,
+    "Id": 2
+  },
+  {
+    "Name": "Stadler Tango",
+    "TypeId": 3,
+    "Id": 1
+  },
+  {
+    "Name": "Bombardier Flexity Classic",
+    "TypeId": 3,
+    "Id": 2
+  },
+  {
+    "Name": "Metro Sofia",
+    "TypeId": 4,
+    "Id": 1
+  },
+  {
+    "Name": "Metro Warsaw",
+    "TypeId": 4,
+    "Id": 2
+  },
+  {
+    "Name": "e4msua",
+    "TypeId": 1,
+    "Id": 3
+  },
+  {
+    "Name": "ford",
+    "TypeId": 1,
+    "Id": 4
+  },
+  {
+    "Name": "fiat",
+    "TypeId": 1,
+    "Id": 5
+  }
+]
