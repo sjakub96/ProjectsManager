@@ -1,16 +1,11 @@
 ﻿using ProjectsManager.App.Common;
 using ProjectsManager.Domain.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectsManager.App.Concrete
 {
     public class MenuActionService : BaseService<MenuAction>
     {
-
         public MenuActionService()
         {
             Initialize();
@@ -19,7 +14,8 @@ namespace ProjectsManager.App.Concrete
         public List<MenuAction> GetMenuActionByMenuName(string menuName)
         {
             List<MenuAction> result = new List<MenuAction>();
-            foreach (var menuAction in Projects)
+
+            foreach (var menuAction in Items)
             {
                 if(menuAction.MenuName == menuName)
                 {
@@ -29,7 +25,6 @@ namespace ProjectsManager.App.Concrete
 
             return result;
         }
-
 
         private void Initialize()
         {
@@ -46,7 +41,6 @@ namespace ProjectsManager.App.Concrete
             AddNewProject(new MenuAction(2, "Trains", "SelectProjectMenu"));
             AddNewProject(new MenuAction(3, "Trams", "SelectProjectMenu"));
             AddNewProject(new MenuAction(4, "Metro", "SelectProjectMenu"));
-
         }
     }
 }

@@ -1,15 +1,11 @@
-﻿using ProjectsManager.App;
-using ProjectsManager.App.Common;
-using ProjectsManager.App.Concrete;
+﻿using ProjectsManager.App.Concrete;
 using ProjectsManager.App.Managers;
-using ProjectsManager.Domain.Entity;
 using System;
 
 namespace ProjectsManager
 {
     public class Program
     {
-        
         static void Main(string[] args)
         {
             //Użytkownik zostanie przywitany
@@ -31,6 +27,7 @@ namespace ProjectsManager
             MenuActionService menuActionService = new MenuActionService();
             ProjectService projectService = new ProjectService();
             ProjectManager projectManager = new ProjectManager(menuActionService, projectService);
+            FileManager fileManager = new FileManager(projectService);
 
 
             projectManager.AddStartupProjects();
@@ -40,7 +37,6 @@ namespace ProjectsManager
 
             while (true)
             {
-
                 Console.WriteLine("Please select what you want to do: ");
                 Console.WriteLine();
 
@@ -69,16 +65,16 @@ namespace ProjectsManager
                         projectManager.RemoveProject(removeId, removeProjectName, removeTypeId);
                         break;
                     case '6':
-                        projectManager.ImportFromXML();
+                        fileManager.ImportFromXML();
                         break;
                     case '7':
-                        projectManager.ImportFromJSON();
+                        fileManager.ImportFromJSON();
                         break;
                     case '8':
-                        projectManager.ExportToXML();
+                        fileManager.ExportToXML();
                         break;
                     case '9':
-                        projectManager.ExportToJSON();
+                        fileManager.ExportToJSON();
                         break;
                     case '0':
                         Environment.Exit(0);
@@ -87,15 +83,10 @@ namespace ProjectsManager
                         Console.Clear();
                         Console.WriteLine("Action not exists");
                         break;
-
                 }
 
                 Console.Clear();
             }
-
-
         }
-
-       
     }
 }

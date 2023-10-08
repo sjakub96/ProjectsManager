@@ -6,22 +6,20 @@ namespace ProjectsManager.App.Common
 {
     public class BaseService<T> : IService<T> where T : BaseEntity
     {
-
-        public List<T> Projects { get; set; }
-        public List<T> Faults { get; set; }
+        public List<T> Items { get; set; }
 
         public BaseService()
         {
-            Projects = new List<T>();
+            Items = new List<T>();
         }
 
         public int GetLastId()
         {
             int lastId;
 
-            if (Projects.Any())
+            if (Items.Any())
             {
-                lastId = Projects.OrderBy(p => p.Id).LastOrDefault().Id;
+                lastId = Items.OrderBy(p => p.Id).LastOrDefault().Id;
             }
             else
             {
@@ -31,27 +29,25 @@ namespace ProjectsManager.App.Common
             return lastId;
         }
         
-        public int AddNewProject(T project)
+        public int AddNewItem(T item)
         {
-            Projects.Add(project);
-            return project.Id;
+            Items.Add(item);
+            return item.Id;
         }
 
-        public void RemoveAllProjects()
+        public void RemoveAllItems()
         {
-            Projects.Clear();
+            Items.Clear();
         }
 
-        public void RemoveProject(T project)
+        public void RemoveItem(T item)
         {
-            Projects.Remove(project);
+            Items.Remove(item);
         }
 
-        public List<T> ShowAllProjects()
+        public List<T> ShowAllItems()
         {
-            return Projects;
+            return Items;
         }
-
-
     }
 }

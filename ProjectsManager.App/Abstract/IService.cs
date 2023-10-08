@@ -1,23 +1,20 @@
-﻿using ProjectsManager.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ProjectsManager.App
 {
     public interface IService<T>
     {
         int GetLastId();
-        List<T> Projects { get; set; }
 
-        List<T> ShowAllProjects();
+        List<T> Items { get; set; }
 
-        int AddNewProject(T project);
+        List<T> ShowAllItems();
 
-        void RemoveAllProjects();
-        void RemoveProject(T project);
+        int AddNewItem(T item);
+
+        void RemoveAllItems();
+
+        void RemoveItem(T item);
 
     }
 }

@@ -1,19 +1,11 @@
 ﻿using ProjectsManager.App.Common;
-using ProjectsManager.App.Managers;
-using ProjectsManager.Domain;
 using ProjectsManager.Domain.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectsManager.App.Concrete
 {
     public class ProjectService : BaseService<Project>
     {
-
-        
         public ConsoleKeyInfo ProjectTypeSelectionView()
         {
             Console.Clear();
@@ -26,12 +18,10 @@ namespace ProjectsManager.App.Concrete
 
             ConsoleKeyInfo projectId = Console.ReadKey();
             return projectId;
-            
         }
 
         public int RemoveProjectTypeSelection()
         {
-
             Console.Clear();
             Console.WriteLine("Please select the type of project you want to remove: ");
             Console.WriteLine();
@@ -53,7 +43,5 @@ namespace ProjectsManager.App.Concrete
                 return 0;
             }
         }
-
     }
-
 }
