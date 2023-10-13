@@ -1,6 +1,7 @@
 ﻿using ProjectsManager.App.Common;
 using ProjectsManager.Domain.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectsManager.App.Concrete
 {
@@ -13,6 +14,9 @@ namespace ProjectsManager.App.Concrete
         
         public List<MenuAction> GetMenuActionByMenuName(string menuName)
         {
+            return Items.Where(x => x.MenuName == menuName).ToList();
+
+            /*
             List<MenuAction> result = new List<MenuAction>();
 
             foreach (var menuAction in Items)
@@ -24,23 +28,24 @@ namespace ProjectsManager.App.Concrete
             }
 
             return result;
+            */
         }
 
         private void Initialize()
         {
-            AddNewProject(new MenuAction(1, "Show all projects", "Main"));
-            AddNewProject(new MenuAction(2, "Add project", "Main"));
-            AddNewProject(new MenuAction(3, "Remove project", "Main"));
-            AddNewProject(new MenuAction(6, "Import from XML", "Main"));
-            AddNewProject(new MenuAction(7, "Import from JSON", "Main"));
-            AddNewProject(new MenuAction(8, "Export to XML", "Main"));
-            AddNewProject(new MenuAction(9, "Export to JSON", "Main"));
-            AddNewProject(new MenuAction(0, "Exit program", "Main"));
+            AddNewItem(new MenuAction(1, "Show all projects", "Main"));
+            AddNewItem(new MenuAction(2, "Add project", "Main"));
+            AddNewItem(new MenuAction(3, "Remove project", "Main"));
+            AddNewItem(new MenuAction(6, "Import from XML", "Main"));
+            AddNewItem(new MenuAction(7, "Import from JSON", "Main"));
+            AddNewItem(new MenuAction(8, "Export to XML", "Main"));
+            AddNewItem(new MenuAction(9, "Export to JSON", "Main"));
+            AddNewItem(new MenuAction(0, "Exit program", "Main"));
 
-            AddNewProject(new MenuAction(1, "Locomotives", "SelectProjectMenu"));
-            AddNewProject(new MenuAction(2, "Trains", "SelectProjectMenu"));
-            AddNewProject(new MenuAction(3, "Trams", "SelectProjectMenu"));
-            AddNewProject(new MenuAction(4, "Metro", "SelectProjectMenu"));
+            AddNewItem(new MenuAction(1, "Locomotives", "SelectProjectMenu"));
+            AddNewItem(new MenuAction(2, "Trains", "SelectProjectMenu"));
+            AddNewItem(new MenuAction(3, "Trams", "SelectProjectMenu"));
+            AddNewItem(new MenuAction(4, "Metro", "SelectProjectMenu"));
         }
     }
 }

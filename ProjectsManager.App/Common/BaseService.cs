@@ -15,18 +15,14 @@ namespace ProjectsManager.App.Common
 
         public int GetLastId()
         {
-            int lastId;
-
             if (Items.Any())
             {
-                lastId = Items.OrderBy(p => p.Id).LastOrDefault().Id;
+                return Items.OrderBy(p => p.Id).LastOrDefault().Id;
             }
             else
             {
-                lastId = 0;
+                return 0;
             }
-
-            return lastId;
         }
         
         public int AddNewItem(T item)
@@ -45,9 +41,5 @@ namespace ProjectsManager.App.Common
             Items.Remove(item);
         }
 
-        public List<T> ShowAllItems()
-        {
-            return Items;
-        }
     }
 }

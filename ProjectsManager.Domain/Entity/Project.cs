@@ -5,12 +5,6 @@ namespace ProjectsManager.Domain.Entity
 {
     public class Project : BaseEntity
     {
-        [XmlElement("Name")]
-        public string Name { get; set; }
-
-        [XmlElement("TypeId")]
-        public int TypeId { get; set; }
-
         public Project()
         {
 
@@ -22,5 +16,12 @@ namespace ProjectsManager.Domain.Entity
             Name = name;
             TypeId = typeId;
         }
+
+        [XmlElement("Name")]
+        public string Name { get; set; }
+
+        [XmlElement("TypeId")]
+        public int TypeId { get; set; }
+
     }
 }

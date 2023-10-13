@@ -4,6 +4,7 @@ using ProjectsManager.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace ProjectsManager.App.Managers
@@ -58,9 +59,12 @@ namespace ProjectsManager.App.Managers
 
             if(int.TryParse(typeId.KeyChar.ToString(), out typeIdInt))
             {
-                List<Project> toShow = _projectService.ShowAllItems();
+                List<Project> toShow = _projectService.Items;
                 List<Project> toShowList = new List<Project>();
 
+                toShowList = toShow.Where(x => x.TypeId == typeIdInt).ToList();
+
+                /*
                 foreach (var project in toShow)
                 {
                     if (project.TypeId == typeIdInt)
@@ -68,6 +72,7 @@ namespace ProjectsManager.App.Managers
                         toShowList.Add(project);
                     }
                 }
+                */
 
                 Console.Clear();
 
@@ -77,7 +82,6 @@ namespace ProjectsManager.App.Managers
                 }
 
                 Console.ReadKey();
-
             }
             else
             {
@@ -91,7 +95,7 @@ namespace ProjectsManager.App.Managers
         
         public void RemoveProject(int removeProjectId, string projectName, int typeId)
         {
-            List<Project> toShow = _projectService.ShowAllItems();
+            List<Project> toShow = _projectService.Items;
             Project projectToRemove = new Project(removeProjectId, projectName, typeId);
 
             foreach (var project in toShow)
@@ -108,7 +112,7 @@ namespace ProjectsManager.App.Managers
         
         public string RemoveProjectGetName(int removeProjectId, int typeId)
         {
-            List<Project> toShow = _projectService.ShowAllItems();
+            List<Project> toShow = _projectService.Items;
             
             string projectName;
 
@@ -128,7 +132,7 @@ namespace ProjectsManager.App.Managers
 
         public int RemoveProjectView(int typeIdInt)
         {
-            List<Project> toShow = _projectService.ShowAllItems();
+            List<Project> toShow = _projectService.Items;
             List<Project> toShowList = new List<Project>();
 
             foreach (var project in toShow)

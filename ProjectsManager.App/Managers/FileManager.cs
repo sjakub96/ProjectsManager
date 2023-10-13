@@ -17,7 +17,7 @@ namespace ProjectsManager.App.Managers
 
         public void ExportToXML()
         {
-            var projects = _projectService.ShowAllItems();
+            var projects = _projectService.Items;
             var path = @"C:\Users\Dziku\Desktop\Tutoriale C#\Szkoła dotNeta\Praca domowa\ProjectsManager\ProjectsManager\XML\projects.xml";
 
             XmlRootAttribute rootAttribute = new XmlRootAttribute();
@@ -32,7 +32,7 @@ namespace ProjectsManager.App.Managers
 
         public void ExportToJSON()
         {
-            var projects = _projectService.ShowAllItems();
+            var projects = _projectService.Items;
             var path = @"C:\Users\Dziku\Desktop\Tutoriale C#\Szkoła dotNeta\Praca domowa\ProjectsManager\ProjectsManager\JSON\projects.json";
 
             var output = JsonConvert.SerializeObject(projects, Formatting.Indented);
@@ -55,7 +55,7 @@ namespace ProjectsManager.App.Managers
 
             var itemsFromXml = (List<Project>)xmlSerializer.Deserialize(stringReader);
 
-            if (_projectService.ShowAllItems().Count != 0)
+            if (_projectService.Items.Count != 0)
             {
                 _projectService.RemoveAllItems();
 
@@ -81,7 +81,7 @@ namespace ProjectsManager.App.Managers
 
             var projects = JsonConvert.DeserializeObject<List<Project>>(json);
 
-            if (_projectService.ShowAllItems().Count != 0)
+            if (_projectService.Items.Count != 0)
             {
                 _projectService.RemoveAllItems();
 
