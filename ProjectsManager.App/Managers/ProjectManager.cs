@@ -16,10 +16,46 @@ namespace ProjectsManager.App.Managers
 
         public ProjectManager(MenuActionService menuActionService, IService<Project> projectService)
         {
-            _projectService = projectService;
             _menuActionService = menuActionService;
+            _projectService = projectService;
         }
 
+        public ConsoleKeyInfo ProjectTypeSelectionView()
+        {
+            Console.Clear();
+            Console.WriteLine("Please select the type of project you want to see: ");
+            Console.WriteLine();
+            Console.WriteLine("1. Locomotives");
+            Console.WriteLine("2. Trains");
+            Console.WriteLine("3. Trams");
+            Console.WriteLine("4. Metro");
+
+            ConsoleKeyInfo projectId = Console.ReadKey();
+            return projectId;
+        }
+        public int RemoveProjectTypeSelection()
+        {
+            Console.Clear();
+            Console.WriteLine("Please select the type of project you want to remove: ");
+            Console.WriteLine();
+            Console.WriteLine("1. Locomotives");
+            Console.WriteLine("2. Trains");
+            Console.WriteLine("3. Trams");
+            Console.WriteLine("4. Metro");
+
+            var projectTypeId = Console.ReadKey();
+            int id;
+
+            if (int.TryParse(projectTypeId.KeyChar.ToString(), out id))
+            {
+                return id;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input data type");
+                return 0;
+            }
+        }
         public int AddNewProject()
         {
             var addNewProjectMenu = _menuActionService.GetMenuActionByMenuName("SelectProjectMenu");
@@ -63,16 +99,6 @@ namespace ProjectsManager.App.Managers
                 List<Project> toShowList = new List<Project>();
 
                 toShowList = toShow.Where(x => x.TypeId == typeIdInt).ToList();
-
-                /*
-                foreach (var project in toShow)
-                {
-                    if (project.TypeId == typeIdInt)
-                    {
-                        toShowList.Add(project);
-                    }
-                }
-                */
 
                 Console.Clear();
 

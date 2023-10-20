@@ -1,5 +1,8 @@
-﻿using ProjectsManager.App.Concrete;
+﻿using ProjectsManager.App;
+using ProjectsManager.App.Common;
+using ProjectsManager.App.Concrete;
 using ProjectsManager.App.Managers;
+using ProjectsManager.Domain.Entity;
 using System;
 
 namespace ProjectsManager
@@ -23,11 +26,10 @@ namespace ProjectsManager
             //a3.1 - wybierz czy pojazd jest lokomotywa, ezt, pojazdem metra czy tramwajem
             //a3.2 - podaj id projektu
 
-
             MenuActionService menuActionService = new MenuActionService();
-            ProjectService projectService = new ProjectService();
-            ProjectManager projectManager = new ProjectManager(menuActionService, projectService);
-            FileManager fileManager = new FileManager(projectService);
+            BaseService<Project> baseService = new BaseService<Project>();
+            ProjectManager projectManager = new ProjectManager(menuActionService, baseService);
+            FileManager fileManager = new FileManager(baseService);
 
 
             projectManager.AddStartupProjects();
@@ -52,14 +54,14 @@ namespace ProjectsManager
                 switch (userChoice.KeyChar)
                 {
                     case '1':
-                        var typeId = projectService.ProjectTypeSelectionView();
+                        var typeId = projectManager.ProjectTypeSelectionView();
                         projectManager.ShowAllProjects(typeId);
                         break;
                     case '2':
                         var newId = projectManager.AddNewProject();
                         break;
                     case '3':
-                        var removeTypeId = projectService.RemoveProjectTypeSelection();
+                        var removeTypeId = projectManager.RemoveProjectTypeSelection();
                         var removeId = projectManager.RemoveProjectView(removeTypeId);
                         var removeProjectName = projectManager.RemoveProjectGetName(removeId, removeTypeId);
                         projectManager.RemoveProject(removeId, removeProjectName, removeTypeId);

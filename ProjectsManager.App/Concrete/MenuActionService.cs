@@ -15,20 +15,6 @@ namespace ProjectsManager.App.Concrete
         public List<MenuAction> GetMenuActionByMenuName(string menuName)
         {
             return Items.Where(x => x.MenuName == menuName).ToList();
-
-            /*
-            List<MenuAction> result = new List<MenuAction>();
-
-            foreach (var menuAction in Items)
-            {
-                if(menuAction.MenuName == menuName)
-                {
-                    result.Add(menuAction);
-                }
-            }
-
-            return result;
-            */
         }
 
         private void Initialize()
